@@ -1,15 +1,10 @@
 <h1>Listing photos</h1>
 
-<% @photos.each do |photo| %>
-  <div class="photo">
-    <%= link_to(image_tag(photo.image_url(:thumb)), photo) if photo.image? %>
-    <div class="title"><%= photo.title %></div>
-    <div class="actions">
-      <%= link_to "edit", edit_photo_path(photo) %> |
-      <%= link_to "remove", photo, :confirm => 'Are you sure?', :method => :delete %>
-    </div>
-  </div>
-<% end %>
+<div id="photos">
+  <% @photos.each do |photo| %>
+    <%= render photo %>
+  <% end %>
+</div>
 
 <br clear="all" />
 
